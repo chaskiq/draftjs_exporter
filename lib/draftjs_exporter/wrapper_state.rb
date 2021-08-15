@@ -10,6 +10,8 @@ module DraftjsExporter
     def element_for(block)
       type = block.fetch(:type, 'unstyled')
       document.create_element(block_options(type)).tap do |e|
+        element_class_name = block_map.fetch(type).fetch(:className, nil)
+        e[:class] = element_class_name unless element_class_name.nil?
         parent_for(type).add_child(e)
       end
     end
