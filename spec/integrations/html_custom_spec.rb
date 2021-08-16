@@ -2,7 +2,6 @@
 require 'spec_helper'
 require 'draftjs_exporter/html'
 require 'draftjs_exporter/entities/link'
-require 'pry'
 
 image_proc = lambda do |document, block|
   image_url = block.fetch(:data, {}).fetch(:url, "")
